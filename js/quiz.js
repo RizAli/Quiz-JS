@@ -1,8 +1,7 @@
 var questions= [
-
-  ['How many states are in the USA?', 50],
-  ['How many continents are there?', 7],
-  ['How many legs does an insect have?', 6]
+  { question: 'How many states are in the USA?', answer: 50},
+  { question: "How many continents are there?", answer: 7},
+  { question: "How many legs does an insect have?", answer: 6}
 ];
 
 var correctAnswers = 0;
@@ -28,11 +27,9 @@ function buildList(arr) {
 }
 
 
-
-
 for (i = 0; i<questions.length;  i=i+1){
-  question = questions[i][0];
-  answer = questions[i][1];
+  question = questions[i].question;
+  answer = questions[i].answer;
   response = parseInt(prompt(question));
 
   if (response === answer) {
