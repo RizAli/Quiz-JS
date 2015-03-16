@@ -1,7 +1,16 @@
 var questions= [
-  ['How many states are in the USA?', 50],
-  ['How many continents are there?', 7],
-  ['How many legs does an insect have?', 6]
+  {
+    question: 'How many states are in the USA?',
+    answer: 50
+  },
+  {
+    question: 'How many continents are there?',
+    answer: 7
+  },
+  {
+    question:'How many legs does an insect have?',
+    answer: 6
+  }
 ];
 
 var correctAnswers = 0;
@@ -29,8 +38,8 @@ listHTML += '</ol>';
 
 
 for (var i=0; i <questions.length; i+=1) {
-question = questions[i][0];
-answer = questions[i][1];
+question = questions[i].question;
+answer = questions[i].answer;
 response = parseInt(prompt(question));
   if (response === answer) {
     correctAnswers +=1;
@@ -43,7 +52,7 @@ response = parseInt(prompt(question));
 html = "You got " + correctAnswers + " question(s) right.";
 html += '<h2> You got these questions correct: </h2>';
 html += buildlist(correct);
-html += '<h2> You got these question sworng: </h2>';
+html += '<h2> You got these questions worng: </h2>';
 html += buildlist(wrong);
 print(html);
 
