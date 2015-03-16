@@ -18,6 +18,16 @@ var print = function(message){
   document.write(message);
 };
 
+function buildList(arr) {
+  var listHTML = '<ol>';
+    for (var i =0;  i<arr.length; i+=1){
+      listHTML += '<li>' + arr[i] + '</li>';
+    }
+    listHTML+= '</ol>';
+    return listHTML;
+}
+
+
 
 
 for (i = 0; i<questions.length;  i=i+1){
@@ -32,18 +42,19 @@ for (i = 0; i<questions.length;  i=i+1){
   } else if (response !== answer){
     wrongAnswers +=1;
     wrong.push(question);
-
   }
 }
 
 
-html_correct = "<p> You got " + correctAnswers + " question(s) right </p>";
-html_incorrect = "<p> You got " + wrongAnswers + " questions(s) wrong</p>";
+html = "<p> You got " + correctAnswers + " question(s) right.</p> "
+html += "You got " + wrongAnswers + " question(s) wrong. "
 
-html_correct_questions = "<p> You got the following question(s) correct</p>" + correct
-html_wrong_responses = "<p> You got the following question(s) wrong </p>" + wrong
+html += '<h2> You got these questions correct: </h2>';
+html += buildList(correct);
 
-print(html_correct);
-print(html_incorrect);
-print(html_correct_questions);
-print(html_wrong_responses);
+
+html += '<h2> You got these questions wrong: </h2>';
+html += buildList(wrong);
+
+
+print(html);
